@@ -1,18 +1,18 @@
 ﻿using HarmonyLib;
-using NeosModLoader;
+using ResoniteModLoader;
 using FrooxEngine;
 
-namespace NeosNonPersistentInspectors {
-	public class NeosNonPersistentInspectors : NeosMod {
+namespace NonPersistentInspectors {
+	public class NonPersistentInspectors : ResoniteMod {
+		internal const string VERSION_CONSTANT = "2.0.0";
 		public override string Name => "NeosNonPersistentInspectors";
 		public override string Author => "Delta";
-		public override string Version => "1.0.0";
-		public override string Link => "https://github.com/XDelta/NeosNonPersistentInspectors/";
+		public override string Version => VERSION_CONSTANT;
+		public override string Link => "https://github.com/XDelta/NonPersistentInspectors/";
 
 		public override void OnEngineInit() {
-			Harmony harmony = new Harmony("net.deltawolf.NeosNonPersistentInspectors");
+			Harmony harmony = new("net.deltawolf.NonPersistentInspectors");
 			harmony.PatchAll();
-			Msg("Inspectors NonPersistent'd!");
 		}
 
 		[HarmonyPatch(typeof(SceneInspector), "OnAttach")]
